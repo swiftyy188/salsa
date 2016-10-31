@@ -6,6 +6,7 @@ var express		= require("express"),
 	app			= express(),
 	bodyParser  = require("body-parser");
 
+
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine", "ejs");
 
@@ -14,10 +15,13 @@ app.use(express.static(__dirname + '/public'));
 app.get("/", function(req, res){
 	res.render("home")
 });
+
 app.get("/api", function(req, res){
+	var action = req.query.action;
 	res.setHeader('Content-Type', 'application/json');
-	res.send(JSON.stringify({"banana": true}));
-})
+	res.send(JSON.stringify({"banana": action}));
+});
+
 
 
 
