@@ -14,6 +14,12 @@ app.use(express.static(__dirname + '/public'));
 app.get("/", function(req, res){
 	res.render("home")
 });
+app.get("/api", function(req, res){
+	res.setHeader('Content-Type', 'application/json');
+	res.send(JSON.stringify({"banana": true}));
+})
+
+
 
 app.listen(3000, function(){
 	console.log("Salsa Server started");
