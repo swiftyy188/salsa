@@ -18,9 +18,19 @@ app.get("/", function(req, res){
 
 app.get("/api", function(req, res){
 	var action = req.query.action;
+
+	if (action == "when"){
+		res.render("when");
+	} else if(action == "where"){
+		res.render("where");
+	}else if(action == "how"){
+		res.render("how");
+	}
 	res.setHeader('Content-Type', 'application/json');
 	res.send(JSON.stringify({"banana": action}));
 });
+
+
 
 
 
